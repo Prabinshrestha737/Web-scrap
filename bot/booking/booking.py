@@ -59,6 +59,40 @@ class Booking(webdriver.Chrome):
         check_out_element.click()
 
     
+    def select_number_of_peoples(self, count=1):
+
+        
+        search_number_of_people = self.find_element_by_class_name('xp__guests__count')
+        search_number_of_people.click()
+
+        while True:
+            decrease_people = self.find_element_by_css_selector(
+                'button[data-bui-ref="input-stepper-subtract-button"]'
+            )
+            # decrease_people.click()
+
+            #If the value of adults reaches 1, then we should get out
+            adults_value_element = self.find_element_by_id('group_adults')
+            adults_value = adults_value_element.get_attribute(
+                'value'
+            ) #Should give back the adults count
+
+            if int(adults_value) == 1:
+                break
+
+
+            increase_button_element = self.find_element_by_css_selector(
+                'button[data-bui-ref="input-stepper-add-button"]'
+            )
+
+            for _ in range(count - 1):
+                increase_button_element.click()
+
+
+    
+
+
+    
 
 
 

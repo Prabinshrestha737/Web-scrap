@@ -9,5 +9,9 @@ with Booking() as bot:
     bot.select_dates(check_in_date='2022-07-24',
     check_out_date='2022-07-26')
 
+    bot.select_number_of_peoples(10)
+
+
+
 
 
