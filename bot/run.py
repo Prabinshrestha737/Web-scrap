@@ -10,6 +10,8 @@ with Booking() as bot:
     check_out_date='2022-07-26')
 
     bot.select_number_of_peoples(10)
+    bot.click_search()
+    bot.apply_filtrations()
 
 
 
