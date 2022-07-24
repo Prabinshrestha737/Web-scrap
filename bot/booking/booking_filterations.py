@@ -23,5 +23,3 @@ class BookingFilterations:
         )
 
         d.click()
-
-        print(len(star_child_elements))

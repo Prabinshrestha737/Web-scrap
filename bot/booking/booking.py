@@ -3,13 +3,20 @@ from selenium import webdriver
 import os 
 import booking.constants as const
 
+
+from booking.booking_report import BookingReport
+
 from booking.booking_filterations import BookingFilterations
 
 
 class Booking(webdriver.Chrome):
     def __init__(self, teardown=False):
         self.teardown = teardown
-        super(Booking, self).__init__()
+
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+         
+        super(Booking, self).__init__(options=options)
         self.implicitly_wait(15)
         self.maximize_window()
 
@@ -95,7 +102,13 @@ class Booking(webdriver.Chrome):
 
 
 
-    
+    def report_results(self):
+
+        hotle_boxes = self.find_element_by_id(
+            ''
+        )
+
+        report = BookingReport(hotle_boxes)
 
 
     
