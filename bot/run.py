@@ -12,7 +12,7 @@ with Booking() as bot:
     bot.select_number_of_peoples(10)
     bot.click_search()
     bot.apply_filtrations()
-
+    print(len(bot.report_results()))
 
 
 

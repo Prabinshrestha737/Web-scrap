@@ -105,10 +105,10 @@ class Booking(webdriver.Chrome):
     def report_results(self):
 
         hotle_boxes = self.find_element_by_id(
-            ''
-        )
+            'search_results_table'
+        ).find_element_by_class_name('d20f4628d0')
 
-        report = BookingReport(hotle_boxes)
+        return hotle_boxes
 
 
     
